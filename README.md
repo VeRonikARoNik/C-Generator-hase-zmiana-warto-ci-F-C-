@@ -61,7 +61,10 @@ namespace GeneratorHasel
 
 ```
 
-Przeliczenie Farenhaity na Felciusze z wyborem
+# Przeliczenie Farenhaity na Felciusze z wyborem
+
+<img width="546" height="278" alt="image" src="https://github.com/user-attachments/assets/9a53c280-cd31-4cb2-b027-083297a35c78" />
+
 ```
  using System;
 using System.Collections.Generic;
@@ -112,6 +115,9 @@ namespace przeliczenie
 }
 
 ```
+
+
+# Aplikacja szybka reakcja
 
 <img width="699" height="513" alt="image" src="https://github.com/user-attachments/assets/b0e80ec7-ea0e-49c3-884b-1b4c87c55933" />
 
