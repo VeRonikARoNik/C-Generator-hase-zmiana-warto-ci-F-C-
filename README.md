@@ -112,3 +112,93 @@ namespace przeliczenie
 }
 
 ```
+
+<img width="699" height="513" alt="image" src="https://github.com/user-attachments/assets/b0e80ec7-ea0e-49c3-884b-1b4c87c55933" />
+
+
+```
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Rection_test
+{
+    public partial class Form1 : Form
+    {
+        Random rand = new Random();
+        Stopwatch stopwatch = new Stopwatch();
+        Timer timer = new Timer();
+
+        List<int> scores = new List<int>();
+        int bestScore = int.MaxValue;
+
+        public Form1()
+        {
+            InitializeComponent();
+
+            lblInfo.Text = "Kliknij START, aby rozpocząć test.";
+            lblInfo.TextAlign = ContentAlignment.MiddleCenter;
+            lblInfo.Font = new Font("Segoe UI", 14, FontStyle.Bold);
+
+            lblBest.Text = "Najlepszy wynik: ---";
+
+            listBox1.BackColor = Color.White;
+            listBox1.ForeColor = Color.Black;
+            listBox1.Font = new Font("Segoe UI", 12);
+
+            timer.Tick += Timer_Tick;
+
+            foreach (Control c in this.Controls)
+            {
+                c.MouseDown += ReactionClick;
+            }
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            lblInfo.Text = "Czekaj...";
+            this.BackColor = Color.Red;
+
+            timer.Interval = rand.Next(1000, 3000);
+            timer.Start();
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            timer.Stop();
+            this.BackColor = Color.Lime;
+            lblInfo.Text = "Kliknij teraz!";
+
+            stopwatch.Reset();
+            stopwatch.Start();
+
+            this.MouseDown += ReactionClick;
+        }
+
+        private void ReactionClick(object sender, MouseEventArgs e)
+        {
+            stopwatch.Stop();
+            this.MouseDown -= ReactionClick;
+
+            int time = (int)stopwatch.ElapsedMilliseconds;
+
+            lblInfo.Text = $"Twój czas reakcji: {time} ms";
+            this.BackColor = Color.White;
+
+            scores.Add(time);
+            listBox1.Items.Add($"{time} ms");
+
+            if (time < bestScore)
+            {
+                bestScore = time;
+                lblBest.Text = $"Najlepszy wynik: {bestScore} ms";
+            }
+        }
+    }
+}
+
+
+```
+
