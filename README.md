@@ -208,3 +208,11 @@ namespace Rection_test
 
 ```
 
+#Na podstawie programów zrealizuja program do przemiany walut.
+co najmniej 4 wybranych.
+
+#Zrealizuj program do generowania loginu użytkownika który ma podaną domene @szkola.edu.pl
+
+# * Wykonaj w C# gre uciekający kwadrat.
+
+
