@@ -1,0 +1,1 @@
+# C-Generator-hase-zmiana-warto-ci-F-C-
